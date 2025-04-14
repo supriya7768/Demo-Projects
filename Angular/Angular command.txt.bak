@@ -1,0 +1,13 @@
+
+- To create project
+  ng new <project name>
+  
+- To check version
+  ng v
+  
+  Open the code in VS code
+  
+- To start the application:
+  ng serve / ng s
+  
+Open the link as given in terminal http://localhost:4200/
