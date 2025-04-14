@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id="supriya" class = "com.bnt.di.Student">
+   <property name="studentName" value="Supriya" />
+    <property name="id" value="1"/>
+</bean>
+
+<!--    <bean id="vijaya" class = "com.bnt.di.Student">-->
+<!--        <property name="studentName" value="Vijaya" />-->
+<!--        <property name="id" value="2"/>-->
+<!--    </bean>-->
+
+    <bean id="jayesh" class = "com.bnt.di.Student">
+        <constructor-arg name="studentName" value="Jayesh"/>
+        <constructor-arg name="id" value="3"/>
+    </bean>
+
+    <!-- <bean id="jayesh" class = "com.bnt.di.Student">
+          <property name="studentName" value="Jayesh" />
+          <property name="id" value="2"/>
+    </bean> -->
+
+    <!-- <bean id="ganesh" class = "com.bnt.di.Student">
+        <constructor-arg name="id" value="4"/>
+    </bean> -->
+
+
+
+</beans>

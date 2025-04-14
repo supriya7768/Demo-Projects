@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+<!--        default-init-method = "init"-->
+<!--        default-destroy-method = "destroy"-->
+<!--         if there are multiple init and destroy methods-->
+    <context:annotation-config />
+
+    <bean id = "studentDAO" class="com.bnt.bean_life_cycle" init-method="init" destroy-method="closeConnection">
+        <property name="driver" value = "org.postgresql.Driver" />
+        <property name="url" value = "jdbc:postgresql://localhost:5432/Test" />
+        <property name="userName" value="postgres"/>
+        <property name="password" value="root"/>
+    </bean>
+
+<!--    <bean class = "org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"></bean>-->
+<!--     if we do not use context annotation config  -->
+
+</beans>

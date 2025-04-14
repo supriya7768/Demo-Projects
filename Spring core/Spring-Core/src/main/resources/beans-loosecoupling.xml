@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id = "mathCheatObjectValue" class = "com.bnt.loosecoupling.MathCheat"></bean>
+
+    <bean id = "scienceCheatObjectValue" class = "com.bnt.loosecoupling.ScienceCheat"></bean>
+
+    <bean id = "javaCheatObjectValue" class = "com.bnt.loosecoupling.JavaCheat"></bean>
+
+    <bean id="stu" class = "com.bnt.loosecoupling.Student">
+<!--        <property name="cheat" ref="scienceCheatObjectValue" />-->
+<!--        <property name="cheat" ref="mathCheatObjectValue" />-->
+        <property name="cheat" ref="javaCheatObjectValue" />
+    </bean>
+
+</beans>
