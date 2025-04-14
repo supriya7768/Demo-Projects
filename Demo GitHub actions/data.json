@@ -1,0 +1,16 @@
+[
+	{
+		"account_id": 1,
+		"account_name": "Pintu",
+		"account_city": "Pune",
+		"account_balance": 1000,
+		"updated_name": "Bittu"
+	},
+	{
+		"account_id": 2,
+		"account_name": "Raju",
+		"account_city": "Mumbai",
+		"account_balance": 2000,
+		"updated_name": "Kittu"
+	}
+]

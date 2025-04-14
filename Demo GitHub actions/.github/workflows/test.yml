@@ -1,0 +1,64 @@
+name: Build and Test Project
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+   
+    - name: Set up JDK 21
+      uses: actions/setup-java@v4
+      with:
+        java-version: '21'
+        distribution: 'temurin'
+        cache: gradle
+   
+    - name: Setup Gradle
+      uses: gradle/actions/setup-gradle@v3
+     
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+     
+    - name: Build and Test with Gradle
+      run: ./gradlew build
+
+    - name: Create Docker Network
+      run: docker network create docker-network 
+   
+    - name: Docker Compose Up
+      run: docker compose up -d
+
+    - name: Wait for Container
+      run: sleep 20
+
+    - name: Pull Newman Docker Image
+      run: docker pull postman/newman:latest
+   
+    - name: Run Tests using Newman
+      run: |
+        docker run --network docker-network \
+          -v ${{ github.workspace }}:/workspace \
+          postman/newman:latest run /workspace/postman_collection.json \
+          --environment /workspace/postman_environment.json \
+          --iteration-data /workspace/data.json \
+          --reporters cli,html \
+          --reporter-html-export /workspace/newman-report.html
+
+    - name: Docker Compose Down
+      run: docker compose down
+
+    - name: Upload Newman Report
+      uses: actions/upload-artifact@v3
+      with:
+        name: newman-report
+        path: newman-report.html

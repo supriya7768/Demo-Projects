@@ -1,0 +1,164 @@
+{
+	"info": {
+		"_postman_id": "8e67c07c-449c-4531-b84d-4613f9daf778",
+		"name": "Demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34754472"
+	},
+	"item": [
+		{
+			"name": "Account",
+			"item": [
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Setting request body dynamically",
+									"pm.request.body = {",
+									"    mode: 'raw',",
+									"    raw: JSON.stringify({",
+									"        id: pm.variables.get('account_id'),",
+									"        name: pm.variables.get('account_name'),",
+									"        city: pm.variables.get('account_city'),",
+									"        balance: pm.variables.get('account_balance')",
+									"    })",
+									"};",
+									"// Set header for JSON payload",
+									"pm.request.headers.add({ key: \"Content-Type\", value: \"application/json\" });",
+									"// Log the request body for debugging",
+									"console.log(\"Pre-request body:\", pm.request.body);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Validate status code",
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"// Parse the response body",
+									"const responseData = pm.response.json();",
+									"// Validate response fields",
+									"pm.test(\"Response contains expected fields\", function () {",
+									"    pm.expect(responseData).to.have.property(\"id\", pm.variables.get('account_id'));",
+									"    pm.expect(responseData).to.have.property(\"name\", pm.variables.get('account_name'));",
+									"    pm.expect(responseData).to.have.property(\"city\", pm.variables.get('account_city'));",
+									"    pm.expect(responseData).to.have.property(\"balance\", pm.variables.get('account_balance'));",
+									"});",
+									"// Log the response for debugging",
+									"console.log(\"Post-response body:\", responseData);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{account_name}}\",\n    \"city\": \"{{account_city}}\",\n    \"balance\": {{account_balance}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{base_url}}:{{port}}/account",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Account",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{base_url}}:{{port}}/account",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Name",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{base_url}}:{{port}}/account/{{account_id}}?name={{updated_name}}",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"account",
+								"{{account_id}}"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "{{updated_name}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Account",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{base_url}}:{{port}}/account/{{account_id}}",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"account",
+								"{{account_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

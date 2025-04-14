@@ -1,0 +1,87 @@
+name: Build and Test Project
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+   
+    - name: Set up JDK 21
+      uses: actions/setup-java@v4
+      with:
+        java-version: '21'
+        distribution: 'temurin'
+        cache: gradle
+   
+    - name: Setup Gradle
+      uses: gradle/actions/setup-gradle@v3
+     
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+     
+    - name: Build and Test with Gradle
+      run: ./gradlew build
+
+    - name: Create Docker Network
+      run: docker network create docker-network 
+   
+    - name: Docker Compose Up
+      run: docker compose up -d
+
+    - name: Wait for Container
+      run: sleep 20
+
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+
+    - name: Download and Install Postman CLI
+      run: |
+          curl -L https://dl-cli.pstmn.io/install/linux64.sh | sh
+
+    - name: Authenticate Postman CLI
+      run: postman login --with-api-key ${{ secrets.POSTMAN_API_KEY }}
+
+    - name: Run Tests using Postman CLI
+      id: postman-run
+      run: |
+        postman collection run "34754472-8e67c07c-449c-4531-b84d-4613f9daf778" \
+          -e "34754472-d2cb780d-2ccc-4ac8-8018-1cf33196e82b" > postman-output.txt
+        grep "You can view the run data in Postman at" postman-output.txt | awk '{print $NF}' > postman-link.txt
+
+    - name: Fetch HTML Report
+      id: fetch-html-report
+      run: |
+          REPORT_URL=$(cat postman-link.txt | tr -d '\r')
+          curl -o postman-report.html "$REPORT_URL"
+      env:
+          POSTMAN_API_KEY: ${{ secrets.POSTMAN_API_KEY }}
+
+    - name: Upload Postman CLI Link
+      uses: actions/upload-artifact@v3
+      with:
+        name: postman-link
+        path: postman-link.txt
+
+    - name: Upload Postman CLI Output
+      uses: actions/upload-artifact@v3
+      with:
+        name: postman-output
+        path: postman-output.txt
+
+    - name: Upload HTML Report
+      uses: actions/upload-artifact@v3
+      with:
+        name: postman-html-report
+        path: postman-report.html
