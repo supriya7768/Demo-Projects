@@ -11,3 +11,9 @@
   ng serve / ng s
   
 Open the link as given in terminal http://localhost:4200/
+
+- To build the project
+  ng b / ng build
+  
+- To create component
+  ng generate component <name of component>
