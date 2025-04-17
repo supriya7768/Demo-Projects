@@ -9,4 +9,10 @@
 <p *ngIf="isTrue">Login Successfull</p>
 <p *ngIf="!isTrue">Login not Successfull</p>
 
-<app-child [name] = "userName"></app-child>
+<!-- <app-child [name] = "userName"></app-child> -->
+
+<!-- <app-child [name] = "userName" (sendmsg)="getMsgFromChild($event)"></app-child>
+<h2>{{message}}</h2> -->
+
+<app-child  [iplTeam]= "iplTeamName" (sendTeamName)="getMsgFromChild($event)"></app-child>
+<h2>{{message}}</h2>

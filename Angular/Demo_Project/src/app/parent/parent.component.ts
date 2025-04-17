@@ -12,4 +12,18 @@ export class ParentComponent {
   isTrue = true;
 
   userName : string = 'Bob';
+
+
+
+  
+
+  message : string = ''
+
+  getMsgFromChild(msg:string){
+    this.message = msg
+  }
+
+
+  iplTeamName : string = 'csk';
+
 }
