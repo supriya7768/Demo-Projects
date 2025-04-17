@@ -1,0 +1,12 @@
+<p>parent works!</p>
+
+<ul>
+    <li *ngFor="let fruit of fruits; let i = index">
+        {{ i+1 }} - 
+        {{fruit}}</li>
+</ul>
+
+<p *ngIf="isTrue">Login Successfull</p>
+<p *ngIf="!isTrue">Login not Successfull</p>
+
+<app-child [name] = "userName"></app-child>
