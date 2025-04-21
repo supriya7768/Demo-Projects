@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class SecondComponent {
 
+  color = 'Red'
+  fontSize = 40
+
+  isActive = true
+  notActive = false
 }

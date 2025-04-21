@@ -1,0 +1,46 @@
+
+<!-- Interpolation  -->
+
+<p>{{firstName}}</p>
+<p>{{angularVersion}}</p>
+
+<!-- Property Binding  -->
+
+<div class="row">
+    <div class="col-3">
+        <p>{{isActive}}</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class = "col-3">
+        <h3>Without Two way data binding: </h3>
+        <input type="text" [value] = "firstName" class="form-control">
+    </div>
+    <div class = "col-3">
+        <input [type] = "input" class="form-control">
+    </div>
+</div>
+
+
+<!-- Two way data Binding  -->
+
+<div class="row">
+    <div class = "col-3">
+        <h3>Two way data binding: </h3>
+        <input type="text" [(ngModel)] = "firstName" class="form-control">
+    </div>
+</div>
+
+<div class=" col-3">
+    {{selectedState}}
+</div>
+<div class="col-3">
+    <select [(ngModel)] = "selectedState">
+    <option value="MH">MH</option>
+    <option value="MP">MP</option>
+    <option value="Goa">Goa</option>
+    </select>
+    
+</div>
+

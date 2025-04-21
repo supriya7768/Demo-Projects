@@ -16,4 +16,4 @@ Open the link as given in terminal http://localhost:4200/
   ng b / ng build
   
 - To create component
-  ng generate component <name of component>
+  ng generate component <name of component> / ng g c <name of component>

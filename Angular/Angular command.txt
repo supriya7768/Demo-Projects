@@ -17,3 +17,7 @@ Open the link as given in terminal http://localhost:4200/
   
 - To create component
   ng generate component <name of component> / ng g c <name of component>
+  
+- To create bootstrap
+  npm install bootstrap
+ 
