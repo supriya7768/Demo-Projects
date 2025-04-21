@@ -1,0 +1,55 @@
+<p>pipes works!</p>
+
+<div class="container">
+    <h1>Date pipes Example</h1>
+    <p>short : {{today | date : 'short'}}</p>
+    <p>long : {{today | date : 'long'}}</p>
+    <p>normal Date : {{today}}</p>
+
+    <h1>Currency pipes Example</h1>
+    <p>India : {{number | currency : 'INR'}}</p>
+    <p>Japan : {{number | currency : 'JPY'}}</p>
+
+    <h1>Upper/Lower pipes example</h1>
+    <p>Upper Case : {{variable | uppercase}}</p>
+    <p>Lower Case : {{variable | lowercase}}</p>
+
+    <h1>Decimal Pipe Example</h1>
+    <p>Number : {{number}}</p>
+    <p>Converted Number : {{number | number:'2.2-4'}}</p>
+
+    <h1>Percent Pipe Example</h1>
+    <p>Number : {{number}}</p>
+    <p>Percentage = Number x 100 : {{number | percent : '2.0-2'}}</p>
+
+    <h1>Json Pipe Example</h1>
+    <p>Previous object : {{person.name}} {{person.age}}</p>
+    <p>Converted Json object : {{person | json}}</p>
+
+    <h1>Slice Pipe Example</h1>
+    <p>Message : {{message}}</p>
+    <p>Slice(0,7) : {{message | slice : 0:7}}</p>
+    <p>Slice(7) : {{message | slice :7}}</p>
+    <p>Slice(0, -7) : {{message | slice : 0:-7}}</p>
+    <p>Slice(-7) : {{message | slice : -7}}</p>
+
+    <h1>Key Value Pair</h1>
+    <ul>
+        <li *ngFor="let p of person | keyvalue">
+            {{p.key}} - {{p.value}}
+        </li>
+    </ul>
+
+    <h1>I18n select Pipe</h1>
+    <p>Gender : {{gender | i18nSelect : genderMap}}</p>
+
+    <button (click) = "changeGender('male')">Male</button>
+    <button (click) = "changeGender('female')">Female</button>
+    <button (click) = "changeGender('other')">Other</button>
+</div>
+
+
+
+
+
+

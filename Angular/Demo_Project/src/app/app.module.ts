@@ -13,6 +13,7 @@ import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './parent/child/child.component';
 import { BindingComponent } from './binding/binding.component';
 import { FormsModule } from '@angular/forms';
+import { PipesComponent } from './pipes/pipes.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FormsModule } from '@angular/forms';
     FooterComponent,
     ParentComponent,
     ChildComponent,
-    BindingComponent
+    BindingComponent,
+    PipesComponent
   ],
   imports: [
     BrowserModule,
