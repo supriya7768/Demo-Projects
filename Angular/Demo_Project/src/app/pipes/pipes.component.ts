@@ -31,4 +31,9 @@ export class PipesComponent {
   changeGender(gender : string){
     this.gender=gender
   }
+
+  abc = "Pune"
+
+  num1 = 10;
+  
 }

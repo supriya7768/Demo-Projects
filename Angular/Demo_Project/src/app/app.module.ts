@@ -14,6 +14,7 @@ import { ChildComponent } from './parent/child/child.component';
 import { BindingComponent } from './binding/binding.component';
 import { FormsModule } from '@angular/forms';
 import { PipesComponent } from './pipes/pipes.component';
+import { CustomPipePipe, Reverse, AdditionPipe } from './customPipes/custom-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,10 @@ import { PipesComponent } from './pipes/pipes.component';
     ParentComponent,
     ChildComponent,
     BindingComponent,
-    PipesComponent
+    PipesComponent,
+    CustomPipePipe,
+    Reverse,
+    AdditionPipe
   ],
   imports: [
     BrowserModule,

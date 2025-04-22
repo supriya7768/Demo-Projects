@@ -20,4 +20,7 @@ Open the link as given in terminal http://localhost:4200/
   
 - To create bootstrap
   npm install bootstrap
+  
+- To generate custom pipe
+  ng generate pipe <name of pipe>
  
