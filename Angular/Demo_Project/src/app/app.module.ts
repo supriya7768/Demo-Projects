@@ -20,7 +20,6 @@ import { CustomPipePipe, Reverse, AdditionPipe } from './customPipes/custom-pipe
   declarations: [
     AppComponent,
     FirstComponent,
-    SecondComponent,
     DashboardComponent,
     FirstChildComponent,
     HeaderComponent,

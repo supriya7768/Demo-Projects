@@ -4,6 +4,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { FirstComponent } from './first/first.component';
 import { SecondComponent } from './second/second.component';
 import { PipesComponent } from './pipes/pipes.component';
+import { CompanyComponent } from './company/company.component';
 
 const routes: Routes = [
   {
@@ -13,7 +14,10 @@ const routes: Routes = [
     path:"First", component:FirstComponent
   },
   {
-    path:"Second", component:SecondComponent
+    path:"Second", loadComponent :() => import("./second/second.component").then(m=>m.SecondComponent)
+  },
+  {
+    path:"Company", loadComponent :() => import("./company/company.component").then(m=>m.CompanyComponent)
   },
   {
     path:"Pipes", component:PipesComponent
