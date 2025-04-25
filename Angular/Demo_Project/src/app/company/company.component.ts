@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SecondComponent } from "../second/second.component";
+import { CompanyService } from '../service/company.service';
 
 @Component({
   selector: 'app-company',
@@ -11,5 +12,11 @@ import { SecondComponent } from "../second/second.component";
 })
 export class CompanyComponent {
 
+ constructor(private company : CompanyService){
+  }
 
+  message : string =''
+  getMsgFromService(){
+    this.message = this.company.sendMsgToComponent();
+  }
 }

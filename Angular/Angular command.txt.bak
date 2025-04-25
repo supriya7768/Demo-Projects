@@ -20,4 +20,10 @@ Open the link as given in terminal http://localhost:4200/
   
 - To create bootstrap
   npm install bootstrap
+  
+- To generate custom pipe
+  ng generate pipe <name of pipe>
+  
+- To create standalone component
+  ng g c <name of component> --standalone
  
