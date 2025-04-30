@@ -1,0 +1,113 @@
+/* CSS Variables */
+:root {
+    --main-color: #4caf50;
+    --bg-color: #f0f0f0;
+    --text-color: #333;
+    --hover-color: #388e3c;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg-color);
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Profile Card */
+  .profile-card {
+    background: white;
+    border: 2px solid var(--main-color);
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease, background 0.3s;
+  }
+  
+  .profile-card:hover {
+    transform: scale(1.03);
+    background: #e8f5e9;
+  }
+  
+  .profile-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--main-color);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    margin-bottom: 15px;
+  }
+  
+  /* Text Styling */
+  .name {
+    font-size: 24px;
+    color: var(--text-color);
+    margin: 10px 0;
+  }
+  
+  .bio {
+    font-size: 14px;
+    color: #666;
+    margin: 10px 0;
+    font-style: italic;
+  }
+  
+  /* Skills Tags */
+  .skills {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 10px 0;
+  }
+  
+  .tag {
+    background: var(--main-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    transition: background 0.3s;
+  }
+  
+  .tag:hover {
+    background: var(--hover-color);
+  }
+  
+  /* Button Styling */
+  .contact-btn {
+    background: var(--main-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+  }
+  
+  .contact-btn:hover {
+    background: var(--hover-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+  
+  /* Pseudo-element */
+  .name::after {
+    content: " 👋";
+  }
+  
+  /* Responsive */
+  @media (max-width: 400px) {
+    .profile-card {
+      width: 90%;
+    }
+  }
+  
