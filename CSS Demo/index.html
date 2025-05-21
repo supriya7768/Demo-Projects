@@ -1,22 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CSS Profile Demo</title>
-  <link rel="stylesheet" href="index.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minion Profile</title>
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
-  <div class="profile-card">
-    <img src="./minion.webp" alt="Profile Picture" class="profile-img" />
-    <h2 class="name">John Doe</h2>
-    <p class="bio">Frontend Developer passionate about UI/UX and modern web technologies.</p>
-    <div class="skills">
-      <span class="tag">HTML</span>
-      <span class="tag">CSS</span>
-      <span class="tag">JavaScript</span>
-    </div>
-    <button class="contact-btn">Contact Me</button>
+
+  <!-- Header Section -->
+  <div class="header">
+    <div class="profile-pic"></div>
+    <span class="profile-name">Minion Dave</span>
+    <span class="profile-role">Leader</span>
   </div>
+
+  <!-- Card Section -->
+  <div class="card">
+    <div class="card-image">
+      <img src="minion.webp" alt="Minion" />
+    </div>
+    <div class="card-details">
+      <input type="text" value="Name: Dave" readonly />
+      <input type="text" value="Favorite: Bananas" readonly />
+      <input type="text" value="Hobby: Mischief" readonly />
+      <input type="text" value="Mood: Happy" readonly />
+    </div>
+  </div>
+
+  <!-- Footer Boxes -->
+  <div class="footer">
+    <div class="footer-box"></div>
+    <div class="footer-box"></div>
+    <div class="footer-box"></div>
+  </div>
+
 </body>
 </html>
